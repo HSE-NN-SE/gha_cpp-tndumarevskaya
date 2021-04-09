@@ -33,11 +33,12 @@ jobs:
            name: alg_project
            path: "main.exe"
   telegram:
-      runs-on: ubuntu_latest
-      steps:
-       - name: send file
-         uses: appleboy/telegram-action@master
-         with:
-            to: ${{ secrets.TELEGRAM_TO }}
-            token: ${{ secrets.TELEGRAM_TOKEN }}
-            message_file: alg.cpp
+     runs-on: ubuntu_latest
+     steps:
+      - uses: actions/checkout@master
+      - name: send file
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message_file: alg.cpp
