@@ -33,12 +33,25 @@ jobs:
            name: alg_project
            path: "main.exe"
   telegram:
-     runs-on: ubuntu_latest
-     steps:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - uses: actions/checkout@master
-      - name: send photo message
+      - name: first try
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: hello
+           to: ${{ secrets.TELEGRAM_TO }}
+           token: ${{ secrets.TELEGRAM_TOKEN }}
+           message: I would like to send you an artifact
+
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+           name: alg_project
+
+      - name: sending the file
+        uses: appleboy/telegram-action@master
+        with:
+           to: ${{ secrets.TELEGRAM_TO_DEBUG }}
+           token: ${{ secrets.TELEGRAM_TOKEN_DEBUG }}
+           document: main.exe
