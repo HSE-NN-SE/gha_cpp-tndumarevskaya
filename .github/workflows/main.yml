@@ -40,4 +40,4 @@ jobs:
          with:
             to: TELEGRAM_TO
             token: TELEGRAM_TOKEN
-            document: alg_project.zip
+            document: alg.cpp
