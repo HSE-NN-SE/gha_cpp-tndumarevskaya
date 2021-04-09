@@ -30,5 +30,5 @@ jobs:
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2
         with:
-           name: new-atrifacts
-           path: ".exe"
+           name: alg_project
+           path: "main.exe"
