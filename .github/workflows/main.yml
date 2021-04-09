@@ -32,9 +32,12 @@ jobs:
         with:
            name: alg_project
            path: "main.exe"
-      - name: send file
-        uses: appleboy/telegram-action@master
-        with:
-           to: 1774509459:AAFo7PS5TaRjzsUIxnAyNZyKvAgjg215kag
-           token: 1774509459:AAFo7PS5TaRjzsUIxnAyNZyKvAgjg215kag
-           document: alg_project.zip
+  telegram:
+      runs-on: ubuntu_latest
+      steps:
+       - name: send file
+         uses: appleboy/telegram-action@master
+         with:
+            to: 1774509459:AAFo7PS5TaRjzsUIxnAyNZyKvAgjg215kag
+            token: 1774509459:AAFo7PS5TaRjzsUIxnAyNZyKvAgjg215kag
+            document: alg_project.zip
