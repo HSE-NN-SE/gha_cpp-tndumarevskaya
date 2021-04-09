@@ -36,9 +36,9 @@ jobs:
      runs-on: ubuntu_latest
      steps:
       - uses: actions/checkout@master
-      - name: send file
+      - name: send photo message
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message_file: hello
+          message: hello
